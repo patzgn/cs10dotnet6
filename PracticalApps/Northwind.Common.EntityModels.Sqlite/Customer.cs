@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Xml.Serialization;
 using Microsoft.EntityFrameworkCore;
 
 namespace Shared
@@ -65,6 +66,7 @@ namespace Shared
         public string? Fax { get; set; }
 
         [InverseProperty(nameof(Order.Customer))]
-        public virtual ICollection<Order> Orders { get; set; }
+        [XmlIgnore]
+        public virtual ICollection<Order>? Orders { get; set; }
     }
 }
